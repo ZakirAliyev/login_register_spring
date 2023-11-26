@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User and Human Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #2c3e50; /* Dark Grayish Blue */
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ecf0f1; /* Light Gray */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e; /* Midnight Blue */
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #bdc3c7; /* Silver */
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #2ecc71; /* Emerald Green */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Nephritis Green */
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #bdc3c7; /* Silver */
+            border-radius: 4px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Style for the select options */
+        select option {
+            background-color: #ecf0f1; /* Light Gray */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/register" method="post" th:object="${user}">
+    <h2>User Information</h2>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:field="*{email}" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required>
+    <form action="/register" method="post" th:object="${human}">
+        <h2>Personal Information</h2>
+<!--        <label for="sex">Sex:</label>-->
+<!--        <select id="sex" name="sex" th:field="*{sex}" required>-->
+<!--            <option value="Male">Male</option>-->
+<!--            <option value="Female">Female</option>-->
+<!--        </select>-->
+
+
+        <label for="birthday">Birthday:</label>
+        <input type="text" id="birthday" name="birthday" th:field="*{birthday}" required>
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" th:field="*{height}" required>
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" th:field="*{weight}" required>
+        <button type="submit">Submit</button>
+    </form>
+
+
+</form>
+
+
+</body>
+</html>
